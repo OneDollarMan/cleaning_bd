@@ -3,4 +3,4 @@ WTF_CSRF_SECRET_KEY = 'you-totally-will-never-guess'
 HOST = 'localhost'
 USER = 'root'
 PASSWORD = 'gmfk2ASD'
-DB = 'cleaning'
+DB = 'cleaning'  # don't change
