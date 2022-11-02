@@ -14,17 +14,18 @@
         <li><a href="/orders">Заказы</a></li>
 
         {% if session.get('role') == 3 %}
-        <li class="bg"></li>
         <li><a href="/types">Типы вещей</a></li>
         <li><a href="/cleanings">Типы химчисток</a></li>
         <li><a href="/stats">Статистика</a></li>
         {% endif %}
 
+    </ul>
+
+    <ul class="login_ul">
         {% if session.loggedin %}
-        <li class="bg"></li>
-        <li><u>{{ session.username }}</u><a href="/logout">Выйти</a></li>
+        <li><div class="li_text">Добро пожаловать, {{ session.username }}</div></li>
+        <li><a href="/logout">Выйти</a></li>
         {% else %}
-        <li class="bg"></li>
         <li><a href="/login">Авторизация</a></li>
         {% endif %}
     </ul>

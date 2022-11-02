@@ -1,13 +1,13 @@
 body {
     margin: 0;
     font: 11pt sans-serif;
-    background: #dcdcff;
-    display: flex;
+    background: #fef9e7;
 }
 
 ul {
     padding: 0;
     margin: 0;
+    width: max-content;
 }
 
 li {
@@ -15,8 +15,10 @@ li {
 }
 
 header {
-    border: 2px solid white;
+    background: white;
     height: min-content;
+    margin: 0 auto;
+    display: flex;
 }
 
 a, a:visited {
@@ -47,35 +49,33 @@ p {
 }
 
 .header_menu {
-
+    margin: 0 auto;
+    display: flex;
 }
 
-.header_menu a {
+header a {
     color: black;
-    padding: 5pt;
+    padding: 10pt;
+    font-weight: bold;
 }
 
-.header_menu a:hover {
+header a:hover {
     cursor: pointer;
-    background: white;
+    background: lightgrey;
 }
 
 .header_menu li {
     text-align: center;
 }
 
-.login_div {
-    padding: 5pt;
+.login_ul {
     display: flex;
-    font-size: 9pt;
+    position: absolute;
+    right: 0;
 }
 
-.login_div a {
-    margin: 0 10pt;
-}
-
-.login_div a:hover {
-    color: grey;
+.li_text {
+    padding: 10pt;
 }
 
 .flashes {
@@ -88,18 +88,18 @@ p {
 }
 
 .flashes li {
-    padding: 5pt 10pt;
+    padding: 10pt;
     border-bottom: 2px solid pink;
 }
 
 .bg {
-    border-top: 2px solid white;
+    border-right: 2px solid black;
 }
 
 h2 {
     margin: 0;
     background: pink;
-    padding: 5pt 10pt;
+    padding: 10pt;
     font-size: 11pt;
 }
 
@@ -119,6 +119,7 @@ h2 {
     margin: 0 auto;
     display: flex;
     height: min-content;
+    width: fit-content;
 }
 
 h1 {
@@ -136,9 +137,9 @@ h3 {
 
 .form_div {
     margin: 5pt;
-    border: 2px solid white;
     padding: 5pt;
     height: min-content;
+    background: white;
 }
 
 .form_div form {
@@ -149,6 +150,7 @@ h3 {
 
 input, select {
     margin-bottom: 5pt;
+    padding: 5pt;
 }
 
 details {
@@ -168,12 +170,12 @@ details {
 }
 
 .table_div th {
-    padding: 5pt;
+    padding: 10pt;
 }
 
 .table_div td {
     text-align: center;
-    padding: 5pt;
+    padding: 10pt;
 }
 
 .table_div tr:nth-child(odd) {
