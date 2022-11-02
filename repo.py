@@ -40,6 +40,7 @@ class Repo:
             self.rm_cleaning = lambda id: self.write_query(f"UPDATE cleaning_type SET hidden=1 WHERE id='{id}'")
 
             self.get_statuses = lambda: self.raw_query("SELECT * FROM status")
+            self.get_status_by_id = lambda id: self.get_query(f"SELECT name FROM status WHERE id={id}")
         else:
             print('connection failed')
 

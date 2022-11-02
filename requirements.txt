@@ -2,3 +2,4 @@ Flask~=2.2.2
 Flask-wtf
 mysql-connector-python~=8.0.31
 WTForms~=3.0.1
+PyYAML~=6.0

@@ -10,6 +10,8 @@ STR_LEN = 45
 
 @app.route("/")
 def index():
+    if not session.get('username'):
+        return redirect(url_for('login'))
     return render_template('index.html', title="Главная")
 
 
@@ -21,6 +23,7 @@ def login():
     if form.validate_on_submit():
         user = r.login_user(form.login.data, hashlib.md5(form.password.data.encode('utf-8')).hexdigest())
         if user:
+            app.logger.warning(f'{user[1]} was logged in')
             flash('Вы авторизовались!')
             session['loggedin'] = True
             session['id'] = user[0]
@@ -58,7 +61,9 @@ def users_add():
         rl = request.form.get('role')
         if 0 < len(u) < STR_LEN and 0 < len(p) < STR_LEN and 0 < len(f) < STR_LEN and rl is not None:
             if len(f) < 60 and len(u) < 10:
-                if not r.reg_user(u, p, f, int(rl)):
+                if r.reg_user(u, p, f, int(rl)):
+                    app.logger.warning(f'User {u} with role id {rl} was added by {session.get("username")}')
+                else:
                     flash("Пользователь уже существует")
             else:
                 flash("ФИО или логин слишком длинные")
@@ -73,6 +78,7 @@ def users_add():
 def users_remove(id):
     if session.get('role') == r.ROLE_SUPERVISOR and id:
         r.rm_user(id)
+        app.logger.warning(f'User was removed by {session.get("username")}')
     else:
         flash("Недостаточно прав")
     return redirect(url_for("users"))
@@ -109,6 +115,7 @@ def clients_add():
 def clients_remove(id):
     if session.get('role') == r.ROLE_SUPERVISOR and id:
         r.rm_client(id)
+        app.logger.warning(f'Client removed by {session.get("username")}')
     else:
         flash("Недостаточно прав")
     return redirect(url_for("clients"))
@@ -146,6 +153,7 @@ def orders_change():
         s = request.form.get('status')
         if i and s:
             r.change_order_status(int(i), int(s))
+            app.logger.warning(f'Status of order {i} was changed to "{r.get_status_by_id(s)[0]}" by {session.get("username")}')
         else:
             flash("Заполните форму")
     else:
@@ -164,7 +172,7 @@ def orders_remove(id):
 
 @app.route("/types")
 def types():
-    if session.get('role') >= r.ROLE_SUPERVISOR:
+    if session.get('role') and session.get('role') >= r.ROLE_SUPERVISOR:
         return render_template('types.html', title="Типы вещей", ts=r.get_types())
     else:
         flash("Недостаточно прав")
@@ -191,7 +199,7 @@ def types_rm(id):
 
 @app.route("/cleanings")
 def cleanings():
-    if session.get('role') >= r.ROLE_SUPERVISOR:
+    if session.get('role') and session.get('role') >= r.ROLE_SUPERVISOR:
         return render_template('cleanings.html', title="Типы химчисток", cs=r.get_cleanings())
     else:
         flash("Недостаточно прав")
@@ -223,7 +231,7 @@ def cleanings_rm(id):
 
 @app.route("/stats")
 def stats():
-    if session.get('role') >= r.ROLE_SUPERVISOR:
+    if session.get('role') and session.get('role') >= r.ROLE_SUPERVISOR:
         return render_template('stats.html', title="Статистика", ss=r.get_stats())
     else:
         flash("Недостаточно прав")
