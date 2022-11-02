@@ -43,7 +43,10 @@ def logout():
 
 @app.route("/users")
 def users():
-    return render_template('users.html', title="Работники", us=r.get_users(), rs=r.get_roles())
+    if session.get('loggedin'):
+        return render_template('users.html', title="Работники", us=r.get_users(), rs=r.get_roles())
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route("/users/add", methods=['POST'])
@@ -77,7 +80,10 @@ def users_remove(id):
 
 @app.route("/clients")
 def clients():
-    return render_template('clients.html', title="Клиенты", cs=r.get_clients())
+    if session.get('loggedin'):
+        return render_template('clients.html', title="Клиенты", cs=r.get_clients())
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route("/clients/add", methods=['POST'])
@@ -110,7 +116,11 @@ def clients_remove(id):
 
 @app.route("/orders")
 def orders():
-    return render_template('orders.html', title="Заказы", os=r.get_orders(), cs=r.get_clients(), ts=r.get_types(), cls=r.get_cleanings(), sts=r.get_statuses())
+    if session.get('loggedin'):
+        return render_template('orders.html', title="Заказы", os=r.get_orders(), cs=r.get_clients(), ts=r.get_types(),
+                               cls=r.get_cleanings(), sts=r.get_statuses())
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route("/orders/add", methods=['POST'])

@@ -9,9 +9,11 @@
 <header>
     <ul class="header_menu">
         <li><a href="/">Главная</a></li>
+        {% if session.loggedin %}
         <li><a href="/users">Работники</a></li>
         <li><a href="/clients">Клиенты</a></li>
         <li><a href="/orders">Заказы</a></li>
+        {% endif %}
 
         {% if session.get('role') == 3 %}
         <li><a href="/types">Типы вещей</a></li>
