@@ -3,3 +3,17 @@
 2022-11-02 17:22:16,039 - __init__ - WARNING - 1 was logged in
 2022-11-02 17:22:23,239 - werkzeug - WARNING -  * Debugger is active!
 2022-11-02 17:22:29,329 - __init__ - WARNING - user1 was logged in
+2022-11-06 17:09:12,142 - werkzeug - WARNING -  * Debugger is active!
+2022-11-06 17:09:43,520 - __init__ - WARNING - root was logged in
+2022-11-06 17:10:58,374 - __init__ - WARNING - root was logged in
+2022-11-06 17:14:20,744 - __init__ - WARNING - root was logged in
+2022-11-06 17:14:45,763 - __init__ - WARNING - root was logged in
+2022-11-06 17:15:27,419 - __init__ - WARNING - Client removed by root
+2022-11-06 17:15:58,043 - __init__ - WARNING - user1 was logged in
+2022-11-06 17:16:10,122 - __init__ - WARNING - Status of order 3 was changed to "В работе" by user1
+2022-11-06 17:16:11,376 - __init__ - WARNING - Status of order 3 was changed to "Готов" by user1
+2022-11-06 17:16:12,713 - __init__ - WARNING - Status of order 3 was changed to "Новый" by user1
+2022-11-06 17:16:24,971 - __init__ - WARNING - root was logged in
+2022-11-06 17:16:37,352 - __init__ - WARNING - User user2 with role id 1 was added by root
+2022-11-06 17:16:43,855 - __init__ - WARNING - user2 was logged in
+2022-11-06 17:17:20,015 - __init__ - WARNING - root was logged in

@@ -82,14 +82,14 @@ header a:hover {
     margin: 0;
     list-style-type: none;
     position: absolute;
-    right: 0pt;
+    right: 20pt;
     top: 50pt;
-    background: #ffe0e6;
+    background: lightgreen;
 }
 
 .flashes li {
     padding: 10pt;
-    border-bottom: 2px solid pink;
+    border-bottom: 2px solid green;
 }
 
 .bg {
@@ -98,7 +98,7 @@ header a:hover {
 
 h2 {
     margin: 0;
-    background: pink;
+    background: green;
     padding: 10pt;
     font-size: 11pt;
 }
