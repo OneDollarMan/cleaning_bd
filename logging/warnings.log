@@ -17,3 +17,29 @@
 2022-11-06 17:16:37,352 - __init__ - WARNING - User user2 with role id 1 was added by root
 2022-11-06 17:16:43,855 - __init__ - WARNING - user2 was logged in
 2022-11-06 17:17:20,015 - __init__ - WARNING - root was logged in
+2022-11-06 17:20:15,334 - werkzeug - WARNING -  * Debugger is active!
+2022-11-06 17:24:35,260 - werkzeug - WARNING -  * Debugger is active!
+2022-11-06 17:24:40,839 - werkzeug - WARNING -  * Debugger is active!
+2022-11-21 18:11:48,263 - werkzeug - WARNING -  * Debugger is active!
+2022-11-21 18:12:17,792 - __init__ - WARNING - Status of order 2 was changed to "Новый" by root
+2022-11-21 18:12:19,131 - __init__ - WARNING - Status of order 2 was changed to "В работе" by root
+2022-11-21 18:12:45,641 - __init__ - WARNING - root was logged in
+2022-12-19 16:04:11,331 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:04:15,885 - __init__ - WARNING - root was logged in
+2022-12-19 16:09:52,828 - __init__ - WARNING - root was logged in
+2022-12-19 16:10:46,430 - __init__ - WARNING - root was logged in
+2022-12-19 16:12:42,149 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:12:49,633 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:15:08,059 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:15:51,377 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:16:23,494 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:17:47,996 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:18:09,872 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:19:08,254 - __init__ - WARNING - root was logged in
+2022-12-19 16:20:10,114 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:21:48,610 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:22:53,439 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:23:09,185 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:24:50,202 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:27:28,577 - werkzeug - WARNING -  * Debugger is active!
+2022-12-19 16:27:37,087 - __init__ - WARNING - root was logged in

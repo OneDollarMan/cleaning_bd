@@ -16,10 +16,12 @@ class Repo:
             self.get_user = lambda u: self.raw_query(f"SELECT * FROM user WHERE username='{u}'")
             self.get_user_by_id = lambda id: self.get_query(f"SELECT * FROM user u JOIN role r ON u.role_id=r.id, u.id='{id}'")
             self.login_user = lambda u, p: self.get_query(f"SELECT * FROM user WHERE username='{u}' AND password='{p}'")
+            self.login_user_safe = lambda u, p: self.get_query(f"SELECT * FROM user WHERE username=%(u)s AND password=%(p)s", {'u': u, 'p': p})
             self.add_user = lambda u, p, f, r: self.write_query(f"INSERT INTO user SET username='{u}', password='{p}', fio='{f}', role_id='{r}'")
             self.get_users = lambda: self.raw_query("SELECT * FROM user JOIN role ON user.role_id=role.id")
             self.get_roles = lambda: self.raw_query("SELECT * FROM role")
             self.rm_user = lambda id: self.write_query(f"DELETE FROM user WHERE id='{id}'")
+            self.change_user_secret_key = lambda username, secret_key: self.write_query(f"UPDATE user SET secret_key='{secret_key}' WHERE username='{username}'")
 
             self.get_clients = lambda: self.raw_query("SELECT * FROM client WHERE hidden='0'")
             self.add_client = lambda f, n, a: self.write_query(f"INSERT INTO client SET fio='{f}', number='{n}', address='{a}'")
@@ -74,9 +76,12 @@ class Repo:
             self.connection.commit()
             return self.cursor.fetchall()
 
-    def get_query(self, query):
+    def get_query(self, query, args=None):
         if self.cursor and query:
-            self.cursor.execute(query)
+            if args:
+                self.cursor.execute(query, args)
+            else:
+                self.cursor.execute(query)
             return self.cursor.fetchone()
 
     def reg_user(self, u, p, f, r):
@@ -84,4 +89,20 @@ class Repo:
             self.add_user(u, p, f, r)
             return True
         else:
+            return False
+
+    def add_secret_key_to_user(self, username, secret_key):
+        user_key = self.raw_query(f"SELECT secret_key FROM user WHERE username='{username}'")
+        if user_key[0][0] is None:
+            self.change_user_secret_key(username, secret_key)
+            return True
+        return False
+
+    def toggle_2fa(self, id):
+        user_2fa = self.raw_query(f"SELECT 2fa FROM user WHERE id='{id}'")
+        if user_2fa[0][0] == 0:
+            self.write_query(f"UPDATE user SET 2fa='1' WHERE id='{id}'")
+            return True
+        else:
+            self.write_query(f"UPDATE user SET 2fa='0' WHERE id='{id}'")
             return False

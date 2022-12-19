@@ -4,13 +4,13 @@ body {
     background: #fef9e7;
 }
 
-ul {
+header ul {
     padding: 0;
     margin: 0;
     width: max-content;
 }
 
-li {
+header li {
     list-style-type: none;
 }
 
@@ -226,4 +226,17 @@ details {
 
 .info_table caption {
     background: white;
+}
+
+.fa_main {
+    background: white;
+    width: 600px;
+    margin: 5pt auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.fa_main a {
+    margin: 10px;
+    width: fit-content;
 }
